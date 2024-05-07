@@ -21,7 +21,7 @@ async function SearchPage({ searchParams }: Props) {
 
   if (!results) return <div>No results...</div>;
 
-//   console.log(results);
+  // console.log(results);
 
   return <div>SearchPage</div>;
 }
