@@ -1,4 +1,5 @@
 import { SearchParams } from "@/app/search/page";
+import { Result } from "../../typings";
 
 export async function fetchResults(searchParams: SearchParams) {
   const username = process.env.OXYLABS_USERNAME;
@@ -16,7 +17,7 @@ export async function fetchResults(searchParams: SearchParams) {
     }
   });
 
-  // console.log("scraping url >>>", url.href);
+//   console.log("scraping url >>>", url.href);
 
   const body = {
     source: "universal",
@@ -143,7 +144,10 @@ export async function fetchResults(searchParams: SearchParams) {
     .then((data) => {
       if (data.results.length === 0) return;
 
-    //   const result: Result = data.results[0];
-    //   return result;
-    });
+      const result: Result = data.results[0];
+      return result;
+    })
+    .catch((err) => console.log(err));
+
+    return response;
 }
